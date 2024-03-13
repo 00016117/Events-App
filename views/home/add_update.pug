@@ -19,11 +19,15 @@ body
         .mb-3
           label(for="contactPhone" class="form-label") Contact Phone
           input(type="tel" class="form-control" id="contactPhone" name="contactPhone" required)
+
+          .mb-3
+        button(type="submit" class="btn btn-primary") Add/Edit
+
           
     script.
         const picker = new tempusDominus.TempusDominus(document.getElementById('datetimepicker1'),{
             localization: {
-                'locale': 'fr'
+                'locale': 'en'
             }
         });
         picker.dates.formatInput = function(date) {
