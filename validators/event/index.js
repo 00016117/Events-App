@@ -1,4 +1,5 @@
-const { body } = require('express-validator');
+const { body, param } = require('express-validator');
+const event_service = require('../../services/event')
 
 const addEventValidation = () => {
   return [
@@ -13,10 +14,22 @@ const addEventValidation = () => {
       .notEmpty().withMessage('Event venue must not be empty'),
     body('contactPhone')
       .notEmpty().withMessage('Contact phone must not be empty')
-      .matches(/^\+998\d{9}$/).withMessage('Invalid phone number format, it must be +998xxxxxxxxx'),    
+      .matches(/^\+998\d{9}$/).withMessage('Invalid phone number format, it must be +998xxxxxxxxx')    
+  ];
+};
+
+const deleteEventValidation = () => {
+  return [
+    param('id').custom(async (id) => {
+      const exists = await event_service.getById(id);
+      if (!exists) {
+        throw new Error('event not found');
+      }
+    })
   ];
 };
 
 module.exports = {
-    addEventValidation
+    addEventValidation,
+    deleteEventValidation
 };
