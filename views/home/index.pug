@@ -2,7 +2,7 @@ include ../head.pug
 body
     .container.mt-5
       h1 List
-      table.custom-table
+      table.table.table-responsive.table-hover.table-striped.table-dark
         thead
           tr
             th(scope="col") ID
@@ -12,21 +12,30 @@ body
             th(scope="col") Contact Phone
             th(scope="col") Actions
         tbody
-          tr
-            td 1
-            td Example Event Name 1
-            td 2024-02-17 10:00
-            td Example Venue
-            td +1234567890
-            td
-              button.btn.btn-primary.btn-sm Edit
-              button.btn.btn-danger.btn-sm Delete
-          tr
-            td 1
-            td Example Event Name 2
-            td 2024-02-17 10:00
-            td Example Venue
-            td +1234567890
-            td
-              button.btn.btn-primary.btn-sm Edit
-              button.btn.btn-danger.btn-sm Delete
+script.
+      document.addEventListener('DOMContentLoaded', function() {
+        axios.get('/api/event')
+          .then(function(response) {
+            const events = response.data;
+            const tableBody = document.querySelector('table tbody');
+            events.forEach(e => {
+              const row = document.createElement('tr');
+              const event = e.event
+              row.innerHTML = `
+                <td>${event.id}</td>
+                <td>${event.eventName}</td>
+                <td>${event.eventDateTime}</td>
+                <td>${event.venue}</td>
+                <td>${event.contactPhone}</td>
+                <td>
+                  <button class="btn btn-primary btn-sm">Edit</button>
+                  <button class="btn btn-danger btn-sm">Delete</button>
+                </td>
+              `;
+              tableBody.appendChild(row);
+            });
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      });

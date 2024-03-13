@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "event":{
+        "id": "asfr23yh",   
+        "eventName": "white party",
+        "eventDateTime": "10/10/2024 19:00",
+        "venue": "WIUT",
+        "contactPhone": "123456789"
+        }
+    }
+]
