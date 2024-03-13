@@ -31,3 +31,7 @@ This is a simple events planning web application built using Node.js, Express, a
 ## Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
+
+
+LINK to the repository:
+https://github.com/00016117/Events-App.git
