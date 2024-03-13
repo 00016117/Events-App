@@ -10,6 +10,7 @@ body
             th(scope="col") Event DateTime
             th(scope="col") Venue
             th(scope="col") Contact Phone
+            th(scope="col") Seat
             th(scope="col") Actions
         tbody
 script.
@@ -18,15 +19,16 @@ script.
           .then(function(response) {
             const events = response.data;
             const tableBody = document.querySelector('table tbody');
-            events.forEach(e => {
+            events.forEach(t => {
               const row = document.createElement('tr');
-              const event = e.event
+              const event = t.event
               row.innerHTML = `
-                <td>${event.id}</td>
+                <td>${t.id}</td>
                 <td>${event.eventName}</td>
                 <td>${event.eventDateTime}</td>
                 <td>${event.venue}</td>
                 <td>${event.contactPhone}</td>
+                <td>${event.seat}</td>
                 <td>
                   <button class="btn btn-primary btn-sm">Edit</button>
                   <button class="btn btn-danger btn-sm">Delete</button>

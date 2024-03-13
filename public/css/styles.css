@@ -1,19 +1,55 @@
-.custom-table {
+/* Style for Bootstrap table */
+.table {
     width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
     border-collapse: collapse;
-}
-
-.custom-table th,
-.custom-table td {
-    padding: 8px;
-    border: 1px solid #000000;
-    text-align: left;
-}
-
-.custom-table th {
-    background-color: #f2f2f2;
-}
-
-.custom-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  .table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+  }
+  
+  .table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+  }
+  
+  .table-dark {
+    color: #fff;
+    background-color: #343a40;
+  }
+  
+  .table-dark th,
+  .table-dark td,
+  .table-dark thead th {
+    border-color: #454d55;
+  }
+  
+  .table-dark.table-bordered {
+    border: 0;
+  }
+  
+  .table-dark.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .table-dark.table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.075);
+  }
+  
