@@ -35,3 +35,5 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 LINK to the repository:
 https://github.com/00016117/Events-App.git
+Deployment:
+https://events-app-blue.vercel.app/
